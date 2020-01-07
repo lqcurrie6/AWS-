@@ -1,5 +1,5 @@
 resource "aws_elb" "" {
-  name = ""
+  name = "elb"
   subnets = ["${aws_subnet-ea673d90}"]
   security_groups = ["${launch-wizard-1}"]
  listener {
