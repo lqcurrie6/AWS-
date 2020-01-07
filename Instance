@@ -1,0 +1,25 @@
+resource "aws_key_pair" "lqc" {
+  key_name = "lqc"
+  public_key = "${(/usr/lib/python3/dist-packages/awscli/examples/cloudtrail/list-public-keys.rst}")}"
+}
+
+resource "aws_instance" "i-0c97209caf6853566" {
+  ami = "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20191002 (ami-0d5d9d301c853a04a)"
+  instance_type = "t2.micro"
+  key_name = "${lqc}"
+
+  provisioner "file" {
+    source = "script.sh"
+    destination = "/tmp/script.sh"
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/script.sh",
+      "sudo /tmp/script.sh"
+    ]
+  }
+  connection {
+    user = "${var.INSTANCE_USERNAME}"
+    private_key = "${/var/lib/snapd/device/private-keys-v1/FHwm-KgYGrRC3NzKbOuMwsg8Br2rMoQ_F9xXhIgySYpoUIUeL4eMReLoLW2hPrnF}")}"
+  }
+}
