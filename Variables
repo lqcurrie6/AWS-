@@ -1,0 +1,15 @@
+variable "Access Key" {AKIAQ6JWPNG2RV3LQUHC}
+variable "Secret key" {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}
+variable "us-east-2b" {
+  default = "us-east-1"
+}
+
+variable "/var/lib/snapd/device/private-keys-v1/FHwm-KgYGrRC3NzKbOuMwsg8Br2rMoQ_F9xXhIgySYpoUIUeL4eMReLoLW2hPrnF" {
+  default = "lqc"
+}
+variable "/usr/lib/python3/dist-packages/awscli/examples/cloudtrail/list-public-keys.rst" {
+  default = "lqc.pub"
+}
+variable "lqc" {
+  default = "ubuntu"
+}
