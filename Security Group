@@ -1,0 +1,44 @@
+resource "My-SG" "lqc" {
+  vpc_id = "${vpc-72995d19}"
+  name = "launch-wizard-1"
+  description = "launch-wizard-1 created 2020-01-02T13:19:35.274-05:00"
+  egress {
+      from_port = 0
+      to_port = 0
+      protocol = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+      from_port = 22
+      to_port = 22
+      protocol = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+  } 
+
+  ingress {
+      from_port = 80
+      to_port = 80
+      protocol = "tcp"
+      security_groups = ["${sg-04a6c7505574e0bc6}"]
+  }
+
+}
+resource "sg-04a6c7505574e0bc6", "launch-wizard-1" {
+  vpc_id = "${vpc-72995d19 }"
+  name = "elb"
+  egress {
+      from_port = 0
+      to_port = 0
+      protocol = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+      from_port = 80
+      to_port = 80
+      protocol = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+  } 
+ 
+}
