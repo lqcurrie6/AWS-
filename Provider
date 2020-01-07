@@ -1,0 +1,4 @@
+provider "aws" {
+    access_key = "${AKIAQ6JWPNG2RV3LQUHC}"
+    secret_key = "${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}"
+}
