@@ -1,0 +1,29 @@
+# install apache2
+apt-get update
+apt-get upgrade
+apt-get install apache2
+
+#check server status (Make sure server has started)
+sudo systemctl status apache2
+sudo systemctl start apache2
+
+#Setup DNS via noip
+cd /usr/local/src
+wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+tar xzf noip-duc-linux.tar.gz
+cd noip-2.1.9-1
+make
+make install
+
+#Deploy Content on server webpage
+cd /var/www/html
+nano index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ByteCubed Challenge LCurrie</title>
+</head>
+<body>
+    <h1>ByteCubed Challenge LCurrie</h1>
+</body>
+</html>
